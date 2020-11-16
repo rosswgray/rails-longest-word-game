@@ -15,9 +15,9 @@ class GamesController < ApplicationController
     if in_grid?(@grid, @answer) == false
       @message = "Your word cannot be made from #{@grid}"
     elsif english_word?(@answer) == false
-      @message = "Your word no existe in Ingles!"
+      @message = 'Your word no existe in Ingles!'
     else
-      @message = "Congratulations, you win!"
+      @message = 'Congratulations, you win!'
     end
   end
 
@@ -39,7 +39,6 @@ class GamesController < ApplicationController
     url = "https://wagon-dictionary.herokuapp.com/#{answer}"
     word_data = open(url).read
     word_data_parsed = JSON.parse(word_data)
-    return word_data_parsed['found']
+    word_data_parsed['found']
   end
-
 end
